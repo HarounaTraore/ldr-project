@@ -1,25 +1,25 @@
 #include <Arduino.h>
 
-int ldrPin = A0; // LDR sur entrée analogique A0
-int ledPin = 8;  // LED sur sortie numérique 8
+int ldrPin = A0; 
+int ledPin = 8; 
 int valeurLDR = 0;
-int seuil = 400; // Ajuste selon ton environnement
+int seuil = 400;
 
 void setup() {
-  pinMode(ledPin, OUTPUT); // LED en sortie
-  Serial.begin(9600);      // Communication série
+  pinMode(ledPin, OUTPUT); 
+  Serial.begin(9600);      
 }
 
 void loop() {
-  valeurLDR = analogRead(ldrPin); // Lire la luminosité
+  valeurLDR = analogRead(ldrPin); 
   
   Serial.print("Valeur LDR : ");
   Serial.println(valeurLDR);
   
   if (valeurLDR < seuil) {
-    digitalWrite(ledPin, HIGH); // Allume la LED s'il fait sombre
+    digitalWrite(ledPin, HIGH);
   } else {
-    digitalWrite(ledPin, LOW);  // Éteint sinon
+    digitalWrite(ledPin, LOW);
   }
   
   delay(500);
